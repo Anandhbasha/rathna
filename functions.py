@@ -44,3 +44,7 @@ add(50,80,99,66)
 # lambda
 square = lambda x,y:x*y
 print(square(5,10))
+
+
+def greet():
+    print("Hello")
