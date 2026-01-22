@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h2>Student Crud</h2>
+    <form method="post">
+        <input type="hidden" name="edit_id" value="{{edit_id.id if edit_id}}">
+        <label>ID:</label>
+        <input type="text" name="id" value="{{edit_id.id if edit_id}}">
+        <label>Name:</label>
+        <input type="text" name="name" value="{{edit_id.name if edit_id}}">
+        <label>Course:</label>
+        <input type="text" name="course" value="{{edit_id.course if edit_id}}">
+        {% if edit %}
+        <button type="submit">Update</button>
+        <a href="/">Cancel</a>
+        {% else %}
+        <button type="submit">Add New Student</button>
+        {% endif %}
+    </form>
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+            <th>Actions</th>
+        </tr>
+        {% for s in students %}
+        <tr>
+            <td>{{s.id}}</td>
+            <td>{{s.name}}</td>
+            <td>{{s.course}}</td>
+            <td>
+                <a href="">Edit</a>
+                <a href="">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
